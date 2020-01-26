@@ -38,7 +38,9 @@ internal class DataSessionRepository @Inject constructor(
     override fun sessionContents(): Flow<SessionContents> {
         val sessionsFlow = sessions()
             .map {
-                it.sortedBy { it.startTime }
+                it.sortedBy { session ->
+                    session.startTime
+                }
             }
         return sessionsFlow.map { sessions ->
             val speechSessions = sessions.filterIsInstance<SpeechSession>()
