@@ -21,7 +21,7 @@ object MainLoopDispatcher : CoroutineDispatcher(), Delay {
             try {
                 block.run()
             } catch (err: Throwable) {
-                print("UNCAUGHT" + err.message ?: "")
+                print("UNCAUGHT" + err.message)
                 err.printStackTrace()
                 throw err
             }
@@ -42,7 +42,7 @@ object MainLoopDispatcher : CoroutineDispatcher(), Delay {
                     resumeUndispatched(Unit)
                 }
             } catch (err: Throwable) {
-                print("UNCAUGHT" + err.message ?: "")
+                print("UNCAUGHT" + err.message)
                 err.printStackTrace()
                 throw err
             }
@@ -68,7 +68,7 @@ object MainLoopDispatcher : CoroutineDispatcher(), Delay {
                     block.run()
                 }
             } catch (err: Throwable) {
-                print("UNCAUGHT" + err.message ?: "")
+                print("UNCAUGHT" + err.message)
                 err.printStackTrace()
                 throw err
             }
